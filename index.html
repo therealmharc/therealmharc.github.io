@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mharc Bedielon Duller's Portfolio" />
+  <title>therealmharc | portfolio</title>
+  <link rel="icon" href="https://github.com/therealmharc.png?size=200" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #1a1a1a;
+      --accent-bg: #fbeaea;
+      --accent-color: #cc0000;
+      --font-head: 'Inter', sans-serif;
+    }
+    body.dark-mode {
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --accent-bg: #1a1a1a;
+      --accent-color: #ff4d4d;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.75;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+    header, section, footer {
+      max-width: 720px;
+      margin: auto;
+      padding: 2rem 1.5rem;
+      animation: fadeIn 0.6s ease-in;
+    }
+    header {
+      text-align: center;
+    }
+    h1 {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent-bg);
+      color: var(--text-color);
+      border: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .avatar:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    .contact-icons {
+      margin-top: 0.7rem;
+    }
+    .contact-icons a {
+      margin: 0 0.6rem;
+      font-size: 1.25rem;
+    }
+    .collapsible {
+      background-color: var(--accent-bg);
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .collapsible i {
+      color: var(--accent-color);
+    }
+    .active, .collapsible:hover {
+      background-color: var(--accent-color);
+      color: white;
+    }
+    .content {
+      padding: 0 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .content.open {
+      max-height: 1000px;
+      margin-top: 0.5rem;
+    }
+    .skill-category {
+      margin-bottom: 1.5rem;
+    }
+    .skill-category h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--accent-color);
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tags span {
+      background: var(--accent-bg);
+      color: var(--text-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
+    .skill-tags span:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: scale(1.05);
+    }
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.3rem;
+    }
+    h3 {
+      margin-top: 1.2rem;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-color);
+      padding-bottom: 2rem;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle">🌓</button>
+  <header>
+    <img src="https://github.com/therealmharc.png?size=200" alt="Mharc Bedielon Duller" class="avatar" loading="lazy" />
+    <h1>Mharc Bedielon Duller</h1>
+    <p class="subtitle">IT Specialist & Data Analyst</p>
+    <div class="contact-icons">
+      <a href="mailto:therealmharc@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://therealmharc.github.io" title="Portfolio"><i class="fas fa-globe"></i></a>
+      <a href="https://github.com/therealmharc" title="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </header>
+
+  <section>
+    <button class="collapsible"><i class="fas fa-user"></i> About Me</button>
+    <div class="content">
+      <p>I’m a detail-oriented IT Specialist and Data Analyst with hands-on experience in data analytics, Android OS development, and IT infrastructure support. I’m skilled in extracting insights from data, managing custom development projects, and delivering technical support that keeps systems and people running smoothly.</p>
+    </div>
+
+    <button class="collapsible"><i class="fas fa-code"></i> Skills</button>
+    <div class="content">
+      <div class="skill-category">
+        <h4>Languages</h4>
+        <div class="skill-tags"><span>Java</span><span>Python</span><span>C++</span><span>SQL</span><span>JavaScript</span></div>
+      </div>
+      <div class="skill-category">
+        <h4>Frameworks</h4>
+        <div class="skill-tags"><span>React</span><span>Angular</span><span>.NET</span><span>Django</span><span>Node.js</span></div>
+      </div>
+      <div class="skill-category">
+        <h4>Databases</h4>
+        <div class="skill-tags"><span>MySQL</span><span>MongoDB</span><span>Oracle</span><span>MS SQL</span></div>
+      </div>
+      <div class="skill-category">
+        <h4>Tools</h4>
+        <div class="skill-tags"><span>Git</span><span>Docker</span><span>Jenkins</span><span>Kubernetes</span></div>
+      </div>
+      <div class="skill-category">
+        <h4>Cloud & Platforms</h4>
+        <div class="skill-tags"><span>AWS</span><span>Azure</span><span>Google Cloud</span></div>
+      </div>
+      <div class="skill-category">
+        <h4>Operating Systems</h4>
+        <div class="skill-tags"><span>Linux</span><span>Windows</span><span>macOS</span></div>
+      </div>
+    </div>
+
+    <button class="collapsible"><i class="fas fa-briefcase"></i> Work Experience</button>
+    <div class="content">
+      <h3>FamCo Retail Inc. (Jan 2023 – Jul 2023)</h3>
+      <ul>
+        <li>Built dashboards for strategic decision-making</li>
+        <li>Analyzed data to identify trends</li>
+        <li>Maintained databases and provided IT support</li>
+      </ul>
+      <h3>General Trias - City Hall (Jun 2022 – Oct 2023)</h3>
+      <ul>
+        <li>Diagnosed and resolved IT issues</li>
+        <li>Supported staff with hardware/software troubleshooting</li>
+      </ul>
+      <h3>Prudentech Construction Inc. (May 2021 – Nov 2021)</h3>
+      <ul>
+        <li>Managed IT infrastructure and maintenance</li>
+        <li>Provided day-to-day IT support</li>
+      </ul>
+    </div>
+
+    <button class="collapsible"><i class="fas fa-graduation-cap"></i> Education</button>
+    <div class="content">
+      <p>Cavite State University – General Trias<br>IT – Computer Programming (Undergraduate)</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 therealmharc | Mharc Bedielon Duller
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    document.querySelector(".theme-toggle").addEventListener("click", toggleTheme);
+    window.onload = function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    };
+    document.querySelectorAll(".collapsible").forEach(button => {
+      button.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        content.classList.toggle("open");
+      });
+    });
+  </script>
+</body>
+</html>
