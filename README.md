@@ -1,68 +1,48 @@
-# therealmharc | Portfolio
+# therealmharc | portfolio
 
-Welcome to the **personal portfolio of Mharc Bedielon Lontoc Duller (therealmharc)**, showcasing projects, professional experience, and technical skills with a clean, responsive design.
+Modern, responsive portfolio with red-themed design showcasing professional experience, skills, and tech gear.
 
----
+## Features
 
-## 🚀 Features
+- 🎨 Red-themed UI with dark/light mode
+- 📱 Fully responsive design
+- ⚡ Smooth animations
+- 💾 Resume download
+- ⚙️ "My Gears" tech showcase
+- ⬆️ Back-to-top button
 
-- Smooth **dark/light theme toggle** with transitions
-- Typewriter hero introduction
-- Responsive and mobile-friendly
-- Auto-hide sticky navigation with shadow
-- Smooth section fade-in animations
-- Back-to-top button
-- Resume download button
-- SEO meta tags for discoverability
-- Subtle particle background on dark mode
-- Lighthouse-optimized for performance and accessibility
+## Sections
 
----
+1. **Header**: Profile photo, name, tagline, contact info
+2. **Work Experience**: Timeline with 4 positions
+3. **Skills**: 9 categories with skill badges
+4. **Projects**: 2 project cards
+5. **Education**: University information
+6. **My Gears**: 4 tech equipment cards
 
-## 🛠 Tech Stack
+## Customization
 
-- HTML5, CSS3, JavaScript
-- Font Awesome, Inter Font
-- GitHub Pages or Custom Domain (`randomscape.org`)
+Update these sections in `index.html`:
+```html
+<!-- Personal Info -->
+<header>...</header>
 
----
+<!-- Work Experience -->
+<section id="work">...</section>
 
-## 🌐 Deployment
+<!-- Skills -->
+<section id="skills">...</section>
 
-### GitHub Pages
+<!-- Projects -->
+<section id="projects">...</section>
 
-1. Push `index.html` to your `main` or `gh-pages` branch.
-2. Enable GitHub Pages in your repository settings.
-3. Your site will be live at:
-   ```
-   https://therealmharc.github.io
-   ```
+<!-- Education -->
+<section id="education">...</section>
 
-### Custom Domain (`randomscape.org`)
+<!-- My Gears -->
+<section id="gears">...</section>
 
-1. Point your domain DNS to GitHub Pages.
-2. Add a `CNAME` file containing:
-   ```
-   randomscape.org
-   ```
-3. Enable **Enforce HTTPS** in GitHub Pages settings.
+Update resume URL in JavaScript:
+link.href = 'https://raw.githubusercontent.com/therealmharc/therealmharc.github.io/refs/heads/master/resume.pdf';
 
----
 
-## ✏️ Customization
-
-- Update projects, experience, and styling in `index.html`.
-- Adjust hero typewriter text in the JS block if needed.
-- Update your resume in the repository and ensure the **Download Resume** button points correctly.
-
----
-
-## 📞 Contact
-
-📧 [therealmharc@randomscape.org](mailto:therealmharc@randomscape.org)  
-🌐 [github.com/therealmharc](https://github.com/therealmharc)  
-🌐 [randomscape.org](https://randomscape.org)
-
----
-
-Made with ❤️ by therealmharc.
