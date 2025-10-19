@@ -3,655 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>therealmharc | portfolio</title>
+    <meta name="description" content="Mharc Duller - Versatile IT professional with 4+ years of cross-functional experience in infrastructure management, data analysis, and open-source development.">
+    <meta name="keywords" content="IT professional, data analyst, infrastructure management, open-source developer, Android development, Python, SQL">
+    <meta name="author" content="Mharc Bedielon Lontoc Duller">
+    <meta name="theme-color" content="#d10000">
+    
+    <meta property="og:title" content="Mharc Duller | IT Professional & Developer">
+    <meta property="og:description" content="Versatile IT professional with 4+ years of experience in infrastructure management, data analysis, and open-source development.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/210711584?v=4">
+    <meta property="og:url" content="https://therealmharc.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="therealmharc | portfolio">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mharc Duller | IT Professional & Developer">
+    <meta name="twitter:description" content="Versatile IT professional with 4+ years of experience in infrastructure management, data analysis, and open-source development.">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/210711584?v=4">
+    
+    <link rel="canonical" href="https://therealmharc.github.io">
     <link rel="icon" href="https://avatars.githubusercontent.com/u/210711584?v=4" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #d10000; /* Deep red */
-            --primary-dark: #a00000;
-            --secondary: #000; /* Pure black */
-            --accent: #ff3333;
-            --light: #fff; /* Pure white */
-            --gray: #666;
-            --card-bg: #fff;
-            --background: #f5f5f5;
-            --text: #222;
-            --text-secondary: #444;
-            --border: #e0e0e0;
-            --shadow: 0 4px 15px rgba(0,0,0,0.1);
-            --transition: all .3s ease;
-            --border-radius: 8px;
-        }
-        
-        .dark-theme {
-            --primary: #ff3333;
-            --primary-dark: #ff0000;
-            --secondary: #000;
-            --accent: #ff6666;
-            --light: #111;
-            --gray: #aaa;
-            --card-bg: #1a1a1a;
-            --background: #000;
-            --text: #fff;
-            --text-secondary: #ccc;
-            --border: #333;
-            --shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color .5s ease, color .3s ease, border-color .3s ease;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        /* Floating buttons */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 1000;
-        }
-        
-        .floating-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            border: none;
-            font-size: 1.2rem;
-            transition: var(--transition);
-            will-change: transform;
-        }
-        
-        .floating-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-5px) scale(1.1);
-        }
-        
-        .back-to-top {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity .3s, transform .3s;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Header */
-        header {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            margin: 2rem auto;
-            box-shadow: var(--shadow);
-            animation: fadeIn 1s ease-out;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255,255,255,0.1) 100%);
-        }
-        
-        .profile-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            border: 4px solid var(--light);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            animation: float 6s ease-in-out infinite;
-            will-change: transform;
-        }
-        
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .name {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            font-weight: 800;
-            margin-bottom: .5rem;
-            color: var(--primary);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .tagline {
-            font-size: clamp(1rem, 3vw, 1.3rem);
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-            line-height: 1.5;
-        }
-        
-        .download-btn {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #fff;
-            padding: .8rem 2.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            margin: 1rem 0 1.5rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(209,0,0,0.3);
-            border: none;
-            cursor: pointer;
-            will-change: transform;
-            letter-spacing: 0.5px;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(209,0,0,0.4);
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.2rem;
-            margin-top: 1rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            color: var(--text);
-            transition: var(--transition);
-            padding: .6rem 1.2rem;
-            border-radius: 50px;
-            background: rgba(209,0,0,0.08);
-            text-decoration: none;
-            will-change: transform;
-            font-weight: 500;
-            border: 1px solid rgba(209,0,0,0.1);
-        }
-        
-        .contact-item:hover {
-            background: var(--primary);
-            color: #fff;
-            transform: translateY(-3px);
-        }
-        
-        .contact-item i {
-            font-size: 1.1rem;
-        }
-        
-        /* Sections */
-        section {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2.2rem;
-            margin: 2.2rem 0;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            animation: slideUp .8s ease-out;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255,255,255,0.05) 100%);
-        }
-        
-        .section-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section-title {
-            font-size: clamp(1.5rem, 4vw, 1.9rem);
-            margin-bottom: 1.8rem;
-            padding-bottom: .8rem;
-            border-bottom: 3px solid var(--primary);
-            color: var(--text);
-            display: inline-block;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding: 0 0 0 30px;
-            margin: 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: var(--primary);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.2rem;
-            padding: 1.7rem;
-            border-radius: var(--border-radius);
-            background: var(--light);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            animation: fadeIn .6s ease-out;
-            animation-fill-mode: backwards;
-            will-change: transform;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .timeline-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -33px;
-            top: 20px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 3px solid var(--light);
-        }
-        
-        .job-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: .3rem;
-        }
-        
-        .company {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: .5rem;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-        }
-        
-        .date {
-            font-size: .9rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-        
-        .responsibilities {
-            list-style-type: none;
-        }
-        
-        .responsibilities li {
-            padding-left: 1.5rem;
-            margin-bottom: .7rem;
-            position: relative;
-            color: var(--dark);
-        }
-        
-        .responsibilities li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        /* Skills */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .skill-category {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            will-change: transform;
-            border: 1px solid var(--border);
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .skill-category h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.2rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-        }
-        
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .7rem;
-        }
-        
-        .skill {
-            background: rgba(209,0,0,0.1);
-            color: var(--primary);
-            padding: .6rem 1.1rem;
-            border-radius: 50px;
-            font-size: .9rem;
-            transition: var(--transition);
-            will-change: transform;
-            font-weight: 500;
-            border: 1px solid rgba(209,0,0,0.15);
-        }
-        
-        .skill:hover {
-            background: var(--primary);
-            color: #fff;
-            transform: scale(1.05);
-        }
-        
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background: var(--light);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            animation: fadeIn .6s ease-out;
-            animation-fill-mode: backwards;
-            will-change: transform;
-            border: 1px solid var(--border);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .project-header {
-            padding: 1.5rem;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            color: #fff;
-        }
-        
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: .3rem;
-            font-weight: 700;
-        }
-        
-        .project-role {
-            font-size: .9rem;
-            opacity: .9;
-        }
-        
-        .project-body {
-            padding: 1.5rem;
-        }
-        
-        .project-details {
-            list-style-type: none;
-            margin-top: 1rem;
-        }
-        
-        .project-details li {
-            padding-left: 1.5rem;
-            margin-bottom: .5rem;
-            position: relative;
-            color: var(--dark);
-        }
-        
-        .project-details li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 700;
-        }
-        
-        /* Education */
-        .education-card {
-            background: var(--light);
-            padding: 1.7rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            margin-bottom: 1.5rem;
-            animation: fadeIn .6s ease-out;
-            animation-fill-mode: backwards;
-            will-change: transform;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .education-card:last-child {
-            margin-bottom: 0;
-        }
-        
-        .education-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .degree {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: .3rem;
-            font-weight: 700;
-        }
-        
-        .institution {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: .5rem;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-        }
-        
-        /* Gears */
-        .gears-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .gear-card {
-            background: var(--light);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            animation: fadeIn .6s ease-out;
-            animation-fill-mode: backwards;
-            will-change: transform;
-            border: 1px solid var(--border);
-        }
-        
-        .gear-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .gear-header {
-            padding: 1.5rem;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .gear-header i {
-            font-size: 1.8rem;
-        }
-        
-        .gear-title {
-            font-size: 1.3rem;
-            margin-bottom: .3rem;
-            font-weight: 700;
-        }
-        
-        .gear-body {
-            padding: 1.5rem;
-        }
-        
-        .gear-detail {
-            display: flex;
-            justify-content: space-between;
-            padding: .6rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .gear-detail:last-child {
-            border-bottom: none;
-        }
-        
-        .detail-label {
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-        
-        .detail-value {
-            text-align: right;
-            color: var(--text);
-            font-weight: 500;
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2.5rem 0 1.5rem;
-            color: var(--gray);
-            font-size: .9rem;
-            animation: fadeIn 1s ease-out;
-            border-top: 1px solid var(--border);
-            margin-top: 2rem;
-        }
-        
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: .8rem;
-            }
-            
-            .skills-container, .projects-grid, .gears-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline::before {
-                left: 0;
-            }
-            
-            .timeline-item::before {
-                left: -18px;
-            }
-            
-            .floating-buttons {
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            header, section {
-                padding: 1.8rem;
-            }
-        }
-        
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .projects-grid, .gears-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>therealmharc | portfolio</title>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mharc Bedielon Lontoc Duller",
+        "url": "https://therealmharc.github.io",
+        "image": "https://avatars.githubusercontent.com/u/210711584?v=4",
+        "email": "therealmharc@randomscape.org",
+        "jobTitle": "IT Staff & Data Analyst Specialist",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "ATOMIC Digital Deals Inc."
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tuy",
+            "addressRegion": "Batangas",
+            "addressCountry": "PH"
+        },
+        "sameAs": [
+            "https://github.com/therealmharc",
+            "https://randomscape.org"
+        ]
+    }
+    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <div class="container">
-        <div class="floating-buttons">
-            <button id="theme-toggle" class="floating-btn" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
+        <div class="floating-buttons" role="navigation" aria-label="Floating controls">
+            <button id="theme-toggle" class="floating-btn" aria-label="Toggle dark mode" title="Toggle theme">
+                <i class="fas fa-moon" aria-hidden="true"></i>
             </button>
-            <button id="back-to-top" class="floating-btn back-to-top" aria-label="Back to top">
-                <i class="fas fa-arrow-up"></i>
+            <button id="back-to-top" class="floating-btn back-to-top" aria-label="Back to top" title="Scroll to top">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
             </button>
         </div>
 
         <header>
             <div class="profile-header">
                 <div class="avatar">
-                    <img src="https://avatars.githubusercontent.com/u/210711584?v=4" alt="Mharc Duller" loading="lazy">
+                    <img src="https://avatars.githubusercontent.com/u/210711584?v=4" alt="Mharc Duller profile photo" loading="lazy" width="150" height="150">
                 </div>
                 <h1 class="name">Mharc Bedielon Lontoc Duller</h1>
                 <p class="tagline">
@@ -659,342 +85,400 @@
                     data analysis, and open-source development. Combines technical depth with strategic problem-solving 
                     to drive efficiency in dynamic environments.
                 </p>
-                <a href="#" class="download-btn" id="resume-download">
-                    <i class="fas fa-download"></i> Download Resume
+                
+                <div class="social-links" role="navigation" aria-label="Social media links">
+                    <a href="https://github.com/therealmharc" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/therealmharc" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://randomscape.org" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Personal website" title="Website">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                    </a>
+                </div>
+                
+                <a href="#" class="btn btn-primary" id="resume-download">
+                    <i class="fas fa-download" aria-hidden="true"></i> Download Resume
                 </a>
+                
                 <div class="contact-info">
                     <a href="mailto:therealmharc@randomscape.org" class="contact-item">
-                        <i class="fas fa-envelope"></i> therealmharc@randomscape.org
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>therealmharc@randomscape.org</span>
                     </a>
-                    <a href="https://randomscape.org" target="_blank" class="contact-item">
-                        <i class="fas fa-globe"></i> randomscape.org
+                    <a href="https://randomscape.org" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <span>randomscape.org</span>
                     </a>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i> Tuy, Batangas
+                    <div class="contact-item" role="text">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <span>Tuy, Batangas</span>
                     </div>
                 </div>
             </div>
         </header>
 
-        <section id="work" aria-labelledby="work-heading">
-            <div class="section-content">
-                <h2 class="section-title" id="work-heading">Work Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3 class="job-title">IT Staff & Data Analyst Specialist</h3>
-                        <div class="company">
-                            <i class="fas fa-building"></i> ATOMIC Digital Deals Inc. | Nasugbu, Batangas
-                        </div>
-                        <div class="date">June 2024 – April 2025</div>
-                        <ul class="responsibilities">
-                            <li>Automated data pipelines using Python/SQL, reducing report generation time by 30%</li>
-                            <li>Managed hybrid cloud infrastructure (AWS/Windows Server) and implemented security protocols</li>
-                            <li>Developed dashboards for business analytics using SQL/Excel</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-item">
-                        <h3 class="job-title">IT Staff & Data Analyst Specialist</h3>
-                        <div class="company">
-                            <i class="fas fa-building"></i> FamCo Retail Inc. | Nasugbu, Batangas
-                        </div>
-                        <div class="date">January 2024 – June 2024</div>
-                        <ul class="responsibilities">
-                            <li>Optimized inventory databases (MS SQL Server), improving data accuracy by 25%</li>
-                            <li>Resolved 95% of helpdesk tickets (hardware/network issues) within SLA</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-item">
-                        <h3 class="job-title">IT Support Specialist</h3>
-                        <div class="company">
-                            <i class="fas fa-building"></i> General Trias City Hall | General Trias, Cavite
-                        </div>
-                        <div class="date">June 2022 – October 2023</div>
-                        <ul class="responsibilities">
-                            <li>Managed IT infrastructure for 200+ users (Windows/Linux, DHCP, Firewalls)</li>
-                            <li>Reduced system downtime 40% through proactive maintenance</li>
-                            <li>Trained staff on cybersecurity best practices</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-item">
-                        <h3 class="job-title">IT Administrator</h3>
-                        <div class="company">
-                            <i class="fas fa-building"></i> Prudentech Construction Inc. | General Trias, Cavite
-                        </div>
-                        <div class="date">May 2021 – November 2021</div>
-                        <ul class="responsibilities">
-                            <li>Deployed network solutions (VPN, TCP/IP) across 5 sites</li>
-                            <li>Migrated legacy systems to cloud-based tools</li>
-                            <li>Implemented backup/disaster recovery protocols</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" aria-labelledby="skills-heading">
-            <div class="section-content">
-                <h2 class="section-title" id="skills-heading">Skills</h2>
-                <div class="skills-container">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Languages</h3>
-                        <div class="skill-list">
-                            <span class="skill">Java</span><span class="skill">Python</span>
-                            <span class="skill">C++</span><span class="skill">SQL</span>
-                            <span class="skill">JavaScript</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
-                        <div class="skill-list">
-                            <span class="skill">React</span><span class="skill">Angular</span>
-                            <span class="skill">.NET</span><span class="skill">Django</span>
-                            <span class="skill">Node.js</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-database"></i> Databases</h3>
-                        <div class="skill-list">
-                            <span class="skill">MySQL</span><span class="skill">MongoDB</span>
-                            <span class="skill">Oracle</span><span class="skill">MS SQL Server</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-tools"></i> Tools</h3>
-                        <div class="skill-list">
-                            <span class="skill">Git</span><span class="skill">Docker</span>
-                            <span class="skill">Jenkins</span><span class="skill">Kubernetes</span>
-                            <span class="skill">Microsoft Office</span><span class="skill">Google Docs/Sheets</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-cloud"></i> Platforms</h3>
-                        <div class="skill-list">
-                            <span class="skill">AWS</span><span class="skill">Azure</span>
-                            <span class="skill">Google Cloud</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-desktop"></i> Operating Systems</h3>
-                        <div class="skill-list">
-                            <span class="skill">Linux</span><span class="skill">Windows</span>
-                            <span class="skill">macOS</span><span class="skill">Android</span>
-                            <span class="skill">iOS</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-network-wired"></i> Networking</h3>
-                        <div class="skill-list">
-                            <span class="skill">TCP/IP</span><span class="skill">DNS</span>
-                            <span class="skill">DHCP</span><span class="skill">Firewall management</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-headset"></i> IT Support</h3>
-                        <div class="skill-list">
-                            <span class="skill">Troubleshooting</span><span class="skill">Helpdesk</span>
-                            <span class="skill">Ticketing Systems</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-cogs"></i> DevOps</h3>
-                        <div class="skill-list">
-                            <span class="skill">CI/CD pipelines</span><span class="skill">Automation scripts</span>
-                            <span class="skill">Monitoring</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" aria-labelledby="projects-heading">
-            <div class="section-content">
-                <h2 class="section-title" id="projects-heading">Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">AOSP-SM6150</h3>
-                            <p class="project-role">Lead Developer | 2022 - 2025</p>
-                        </div>
-                        <div class="project-body">
-                            <p>Built Android OS for Snapdragon 732G devices (Xiaomi/POCO) used by 10k+ users</p>
-                            <ul class="project-details">
-                                <li>Optimized kernel performance and battery efficiency by 22%</li>
+        <main id="main-content">
+            <section id="work" aria-labelledby="work-heading">
+                <div class="section-content">
+                    <h2 class="section-title" id="work-heading">Work Experience</h2>
+                    <div class="timeline">
+                        <article class="timeline-item card card-accent">
+                            <h3 class="job-title">IT Staff & Data Analyst Specialist</h3>
+                            <div class="meta-info">
+                                <i class="fas fa-building" aria-hidden="true"></i>
+                                <span>ATOMIC Digital Deals Inc. | Nasugbu, Batangas</span>
+                            </div>
+                            <time class="date" datetime="2024-06/2025-04">June 2024 – April 2025</time>
+                            <ul class="list-styled arrow">
+                                <li>Automated data pipelines using Python/SQL, reducing report generation time by 30%</li>
+                                <li>Managed hybrid cloud infrastructure (AWS/Windows Server) and implemented security protocols</li>
+                                <li>Developed dashboards for business analytics using SQL/Excel</li>
                             </ul>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">RisingTechOSS</h3>
-                            <p class="project-role">Project Manager | 2022 - 2025</p>
-                        </div>
-                        <div class="project-body">
-                            <p>Led 15+ contributors in developing open-source Android OS for legacy devices</p>
-                            <ul class="project-details">
-                                <li>Implemented CI/CD pipelines (Jenkins) reducing build time by 35%</li>
+                        </article>
+                        
+                        <article class="timeline-item card card-accent">
+                            <h3 class="job-title">IT Staff & Data Analyst Specialist</h3>
+                            <div class="meta-info">
+                                <i class="fas fa-building" aria-hidden="true"></i>
+                                <span>FamCo Retail Inc. | Nasugbu, Batangas</span>
+                            </div>
+                            <time class="date" datetime="2024-01/2024-06">January 2024 – June 2024</time>
+                            <ul class="list-styled arrow">
+                                <li>Optimized inventory databases (MS SQL Server), improving data accuracy by 25%</li>
+                                <li>Resolved 95% of helpdesk tickets (hardware/network issues) within SLA</li>
                             </ul>
-                        </div>
+                        </article>
+                        
+                        <article class="timeline-item card card-accent">
+                            <h3 class="job-title">IT Support Specialist</h3>
+                            <div class="meta-info">
+                                <i class="fas fa-building" aria-hidden="true"></i>
+                                <span>General Trias City Hall | General Trias, Cavite</span>
+                            </div>
+                            <time class="date" datetime="2022-06/2023-10">June 2022 – October 2023</time>
+                            <ul class="list-styled arrow">
+                                <li>Managed IT infrastructure for 200+ users (Windows/Linux, DHCP, Firewalls)</li>
+                                <li>Reduced system downtime 40% through proactive maintenance</li>
+                                <li>Trained staff on cybersecurity best practices</li>
+                            </ul>
+                        </article>
+                        
+                        <article class="timeline-item card card-accent">
+                            <h3 class="job-title">IT Administrator</h3>
+                            <div class="meta-info">
+                                <i class="fas fa-building" aria-hidden="true"></i>
+                                <span>Prudentech Construction Inc. | General Trias, Cavite</span>
+                            </div>
+                            <time class="date" datetime="2021-05/2021-11">May 2021 – November 2021</time>
+                            <ul class="list-styled arrow">
+                                <li>Deployed network solutions (VPN, TCP/IP) across 5 sites</li>
+                                <li>Migrated legacy systems to cloud-based tools</li>
+                                <li>Implemented backup/disaster recovery protocols</li>
+                            </ul>
+                        </article>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="education" aria-labelledby="education-heading">
-            <div class="section-content">
-                <h2 class="section-title" id="education-heading">Education</h2>
-                <div class="education-card">
-                    <h3 class="degree">BS in Information Technology - Computer Programming</h3>
-                    <div class="institution">
-                        <i class="fas fa-university"></i> Cavite State University - General Trias Campus | General Trias, Cavite
+            <section id="skills" aria-labelledby="skills-heading">
+                <div class="section-content">
+                    <h2 class="section-title" id="skills-heading">Skills</h2>
+                    <div class="grid grid-auto-fill">
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-code" aria-hidden="true"></i> Languages</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">Java</span>
+                                <span class="badge badge-skill" role="listitem">Python</span>
+                                <span class="badge badge-skill" role="listitem">C++</span>
+                                <span class="badge badge-skill" role="listitem">SQL</span>
+                                <span class="badge badge-skill" role="listitem">JavaScript</span>
+                            </div>
+                        </article>
+                        
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-layer-group" aria-hidden="true"></i> Frameworks</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">React</span>
+                                <span class="badge badge-skill" role="listitem">Angular</span>
+                                <span class="badge badge-skill" role="listitem">.NET</span>
+                                <span class="badge badge-skill" role="listitem">Django</span>
+                                <span class="badge badge-skill" role="listitem">Node.js</span>
+                            </div>
+                        </article>
+                        
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-database" aria-hidden="true"></i> Databases</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">MySQL</span>
+                                <span class="badge badge-skill" role="listitem">MongoDB</span>
+                                <span class="badge badge-skill" role="listitem">Oracle</span>
+                                <span class="badge badge-skill" role="listitem">MS SQL Server</span>
+                            </div>
+                        </article>
+                        
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-tools" aria-hidden="true"></i> Tools</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">Git</span>
+                                <span class="badge badge-skill" role="listitem">Docker</span>
+                                <span class="badge badge-skill" role="listitem">Jenkins</span>
+                                <span class="badge badge-skill" role="listitem">Kubernetes</span>
+                                <span class="badge badge-skill" role="listitem">Microsoft Office</span>
+                                <span class="badge badge-skill" role="listitem">Google Docs/Sheets</span>
+                            </div>
+                        </article>
+                        
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-cloud" aria-hidden="true"></i> Platforms</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">AWS</span>
+                                <span class="badge badge-skill" role="listitem">Azure</span>
+                                <span class="badge badge-skill" role="listitem">Google Cloud</span>
+                            </div>
+                        </article>
+                        
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-desktop" aria-hidden="true"></i> Operating Systems</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">Linux</span>
+                                <span class="badge badge-skill" role="listitem">Windows</span>
+                                <span class="badge badge-skill" role="listitem">macOS</span>
+                                <span class="badge badge-skill" role="listitem">Android</span>
+                                <span class="badge badge-skill" role="listitem">iOS</span>
+                            </div>
+                        </article>
+                        
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-network-wired" aria-hidden="true"></i> Networking</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">TCP/IP</span>
+                                <span class="badge badge-skill" role="listitem">DNS</span>
+                                <span class="badge badge-skill" role="listitem">DHCP</span>
+                                <span class="badge badge-skill" role="listitem">Firewall management</span>
+                            </div>
+                        </article>
+                        
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-headset" aria-hidden="true"></i> IT Support</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">Troubleshooting</span>
+                                <span class="badge badge-skill" role="listitem">Helpdesk</span>
+                                <span class="badge badge-skill" role="listitem">Ticketing Systems</span>
+                            </div>
+                        </article>
+                        
+                        <article class="card skill-category">
+                            <h3><i class="fas fa-cogs" aria-hidden="true"></i> DevOps</h3>
+                            <div class="skill-list" role="list">
+                                <span class="badge badge-skill" role="listitem">CI/CD pipelines</span>
+                                <span class="badge badge-skill" role="listitem">Automation scripts</span>
+                                <span class="badge badge-skill" role="listitem">Monitoring</span>
+                            </div>
+                        </article>
                     </div>
-                    <p>Undergraduate (3rd Year)</p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="gears" aria-labelledby="gears-heading">
-            <div class="section-content">
-                <h2 class="section-title" id="gears-heading">My Gears</h2>
-                <div class="gears-grid">
-                    <div class="gear-card">
-                        <div class="gear-header">
-                            <i class="fas fa-laptop"></i>
-                            <div>
-                                <h3 class="gear-title">HP Laptop 15s</h3>
-                                <p>Primary Development Machine</p>
+            <section id="projects" aria-labelledby="projects-heading">
+                <div class="section-content">
+                    <h2 class="section-title" id="projects-heading">Projects</h2>
+                    <div class="grid grid-projects">
+                        <article class="project-card">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">AOSP-SM6150</h3>
+                                    <p class="card-subtitle">Lead Developer | 2022 - 2025</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gear-body">
-                            <div class="gear-detail"><span class="detail-label">CPU:</span><span class="detail-value">Ryzen 5 5500U</span></div>
-                            <div class="gear-detail"><span class="detail-label">RAM:</span><span class="detail-value">16GB DDR4</span></div>
-                            <div class="gear-detail"><span class="detail-label">Storage:</span><span class="detail-value">500GB SSD</span></div>
-                            <div class="gear-detail"><span class="detail-label">OS:</span><span class="detail-value">Arch Linux with GNOME 48</span></div>
-                        </div>
-                    </div>
-                    <div class="gear-card">
-                        <div class="gear-header">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div>
-                                <h3 class="gear-title">Redmi Note 10 Pro</h3>
-                                <p>Daily Driver</p>
+                            <div class="card-body">
+                                <p>Built Android OS for Snapdragon 732G devices (Xiaomi/POCO) used by 10k+ users</p>
+                                <ul class="list-styled bullet">
+                                    <li>Optimized kernel performance and battery efficiency by 22%</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a href="https://github.com/therealmharc/device_xiaomi_sm6150-common" class="project-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+                                    </a>
+                                </div>
+                                <div class="tech-stack" aria-label="Technologies used">
+                                    <span class="tech-badge">C/C++</span>
+                                    <span class="tech-badge">Linux Kernel</span>
+                                    <span class="tech-badge">Android</span>
+                                    <span class="tech-badge">Git</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gear-body">
-                            <div class="gear-detail"><span class="detail-label">SoC:</span><span class="detail-value">Qualcomm Snapdragon 732G</span></div>
-                            <div class="gear-detail"><span class="detail-label">RAM:</span><span class="detail-value">8GB LPDDR4X</span></div>
-                            <div class="gear-detail"><span class="detail-label">Storage:</span><span class="detail-value">128GB + 256GB SD Card</span></div>
-                            <div class="gear-detail"><span class="detail-label">OS:</span><span class="detail-value">Evolution-X with Android 16</span></div>
-                        </div>
-                    </div>
-                    <div class="gear-card">
-                        <div class="gear-header">
-                            <i class="fas fa-headphones"></i>
-                            <div>
-                                <h3 class="gear-title">Moondrop Space Travel</h3>
-                                <p>Wireless Earbuds</p>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">RisingTechOSS</h3>
+                                    <p class="card-subtitle">Project Manager | 2022 - 2025</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gear-body">
-                            <div class="gear-detail"><span class="detail-label">Driver:</span><span class="detail-value">13mm Dynamic Driver</span></div>
-                            <div class="gear-detail"><span class="detail-label">Connectivity:</span><span class="detail-value">Bluetooth 5.0</span></div>
-                            <div class="gear-detail"><span class="detail-label">Features:</span><span class="detail-value">ANC, Transparency Mode</span></div>
-                        </div>
-                    </div>
-                    <div class="gear-card">
-                        <div class="gear-header">
-                            <i class="fas fa-headphones-alt"></i>
-                            <div>
-                                <h3 class="gear-title">7HZ Salnotes Zero</h3>
-                                <p>In-Ear Monitors</p>
+                            <div class="card-body">
+                                <p>Led 15+ contributors in developing open-source Android OS for legacy devices</p>
+                                <ul class="list-styled bullet">
+                                    <li>Implemented CI/CD pipelines (Jenkins) reducing build time by 35%</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a href="https://github.com/RisingTechOSS" class="project-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github" aria-hidden="true"></i> View Organization
+                                    </a>
+                                </div>
+                                <div class="tech-stack" aria-label="Technologies used">
+                                    <span class="tech-badge">Android</span>
+                                    <span class="tech-badge">Jenkins</span>
+                                    <span class="tech-badge">CI/CD</span>
+                                    <span class="tech-badge">Team Leadership</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gear-body">
-                            <div class="gear-detail"><span class="detail-label">Driver:</span><span class="detail-value">10mm Dynamic Driver</span></div>
-                            <div class="gear-detail"><span class="detail-label">Cable:</span><span class="detail-value">Detachable 2-pin</span></div>
-                            <div class="gear-detail"><span class="detail-label">Features:</span><span class="detail-value">Neutral tuning, High-res audio</span></div>
-                        </div>
+                        </article>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <section id="education" aria-labelledby="education-heading">
+                <div class="section-content">
+                    <h2 class="section-title" id="education-heading">Education</h2>
+                    <article class="card card-accent">
+                        <h3 class="job-title">BS in Information Technology - Computer Programming</h3>
+                        <div class="meta-info">
+                            <i class="fas fa-university" aria-hidden="true"></i>
+                            <span>Cavite State University - General Trias Campus | General Trias, Cavite</span>
+                        </div>
+                        <p>Undergraduate (3rd Year)</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="gears" aria-labelledby="gears-heading">
+                <div class="section-content">
+                    <h2 class="section-title" id="gears-heading">My Gears</h2>
+                    <div class="grid grid-projects">
+                        <article class="project-card">
+                            <div class="card-header gear-header">
+                                <i class="fas fa-laptop" aria-hidden="true"></i>
+                                <div>
+                                    <h3 class="card-title">HP Laptop 15s</h3>
+                                    <p class="card-subtitle">Primary Development Machine</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <dl>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">CPU:</dt>
+                                        <dd class="detail-value">Ryzen 5 5500U</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">RAM:</dt>
+                                        <dd class="detail-value">16GB DDR4</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">Storage:</dt>
+                                        <dd class="detail-value">500GB SSD</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">OS:</dt>
+                                        <dd class="detail-value">Arch Linux with GNOME 48</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="card-header gear-header">
+                                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                                <div>
+                                    <h3 class="card-title">Redmi Note 10 Pro</h3>
+                                    <p class="card-subtitle">Daily Driver</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <dl>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">SoC:</dt>
+                                        <dd class="detail-value">Qualcomm Snapdragon 732G</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">RAM:</dt>
+                                        <dd class="detail-value">8GB LPDDR4X</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">Storage:</dt>
+                                        <dd class="detail-value">128GB + 256GB SD Card</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">OS:</dt>
+                                        <dd class="detail-value">Evolution-X with Android 16</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="card-header gear-header">
+                                <i class="fas fa-headphones" aria-hidden="true"></i>
+                                <div>
+                                    <h3 class="card-title">Moondrop Space Travel</h3>
+                                    <p class="card-subtitle">Wireless Earbuds</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <dl>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">Driver:</dt>
+                                        <dd class="detail-value">13mm Dynamic Driver</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">Connectivity:</dt>
+                                        <dd class="detail-value">Bluetooth 5.0</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">Features:</dt>
+                                        <dd class="detail-value">ANC, Transparency Mode</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </article>
+                        
+                        <article class="project-card">
+                            <div class="card-header gear-header">
+                                <i class="fas fa-headphones-alt" aria-hidden="true"></i>
+                                <div>
+                                    <h3 class="card-title">7HZ Salnotes Zero</h3>
+                                    <p class="card-subtitle">In-Ear Monitors</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <dl>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">Driver:</dt>
+                                        <dd class="detail-value">10mm Dynamic Driver</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">Cable:</dt>
+                                        <dd class="detail-value">Detachable 2-pin</dd>
+                                    </div>
+                                    <div class="gear-detail">
+                                        <dt class="detail-label">Features:</dt>
+                                        <dd class="detail-value">Neutral tuning, High-res audio</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <footer>
-            <p>© 2025 therealmharc</p>
+            <p>© 2025 therealmharc. All rights reserved.</p>
         </footer>
     </div>
 
-    <script>
-        // Cache DOM elements
-        const body = document.body;
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        const backToTopBtn = document.getElementById('back-to-top');
-        const resumeDownload = document.getElementById('resume-download');
-        const sections = document.querySelectorAll('section');
-
-        // Theme toggle functionality
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-theme');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-theme');
-            if (body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-
-        // Back to top button
-        window.addEventListener('scroll', () => {
-            backToTopBtn.classList.toggle('visible', window.scrollY > 300);
-        }, { passive: true });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Section animations
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'slideUp 0.8s ease-out forwards';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => {
-            section.style.opacity = '0';
-            observer.observe(section);
-        });
-
-        // Resume download
-        resumeDownload.addEventListener('click', function(e) {
-            e.preventDefault();
-            const originalHTML = this.innerHTML;
-            const originalBg = this.style.background;
-            
-            this.innerHTML = '<i class="fas fa-check"></i> Downloading...';
-            this.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
-            
-            const link = document.createElement('a');
-            link.href = 'https://raw.githubusercontent.com/therealmharc/therealmharc.github.io/refs/heads/master/resume.pdf';
-            link.download = 'Mharc_Duller_Resume.pdf';
-            link.style.display = 'none';
-            body.appendChild(link);
-            link.click();
-            body.removeChild(link);
-            
-            setTimeout(() => {
-                this.innerHTML = originalHTML;
-                this.style.background = originalBg;
-            }, 2000);
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
