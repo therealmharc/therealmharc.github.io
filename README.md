@@ -1,48 +1,39 @@
 # therealmharc | portfolio
 
-Modern, responsive portfolio with red-themed design showcasing professional experience, skills, and tech gear.
+Modern, responsive portfolio with glassmorphism design and red accent theme.
 
 ## Features
 
-- 🎨 Red-themed UI with dark/light mode
-- 📱 Fully responsive design
-- ⚡ Smooth animations
-- 💾 Resume download
-- ⚙️ "My Gears" tech showcase
-- ⬆️ Back-to-top button
+- Dark/light mode with system preference detection
+- Glassmorphism UI with backdrop blur effects
+- Fully responsive design (mobile + desktop)
+- Mobile hamburger menu navigation
+- Desktop scroll-spy dot navigation
+- Typing animation for tagline
+- Animated gradient background
+- Scroll progress indicator
+- Resume download with feedback states
+- Dynamic copyright year
+- Accessibility-first with ARIA labels, skip links, and focus indicators
+
+## Tech Stack
+
+- Vanilla HTML5, CSS3, JavaScript
+- CSS custom properties (variables) for theming
+- IntersectionObserver for scroll animations
+- Font Awesome icons
+- Google Fonts (Poppins)
 
 ## Sections
 
-1. **Header**: Profile photo, name, tagline, contact info
-2. **Work Experience**: Timeline with 4 positions
-3. **Skills**: 9 categories with skill badges
-4. **Projects**: 2 project cards
-5. **Education**: University information
-6. **My Gears**: 4 tech equipment cards
+- **Header**: Profile, social links, contact info
+- **Work Experience**: Timeline with job history
+- **Skills**: Categorized skill badges
+- **Projects**: Featured open-source work
+- **Education**: Academic background
+- **My Gears**: Tech equipment showcase
 
-## Customization
+## Development
 
-Update these sections in `index.html`:
-```html
-<!-- Personal Info -->
-<header>...</header>
-
-<!-- Work Experience -->
-<section id="work">...</section>
-
-<!-- Skills -->
-<section id="skills">...</section>
-
-<!-- Projects -->
-<section id="projects">...</section>
-
-<!-- Education -->
-<section id="education">...</section>
-
-<!-- My Gears -->
-<section id="gears">...</section>
-
-Update resume URL in JavaScript:
-link.href = 'https://raw.githubusercontent.com/therealmharc/therealmharc.github.io/refs/heads/master/resume.pdf';
-
+Edit content in `index.html`. Styling in `style.css` uses CSS variables defined in `:root` for easy theming. JavaScript in `script.js` handles theme switching, scroll behavior, navigation, and resume downloads.
 

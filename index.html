@@ -65,6 +65,28 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <div class="container">
+        <nav class="dot-nav" role="navigation" aria-label="Section navigation">
+            <a href="#work" class="dot-nav-item" data-section="work" aria-label="Work Experience"><span>Work</span></a>
+            <a href="#skills" class="dot-nav-item" data-section="skills" aria-label="Skills"><span>Skills</span></a>
+            <a href="#projects" class="dot-nav-item" data-section="projects" aria-label="Projects"><span>Projects</span></a>
+            <a href="#education" class="dot-nav-item" data-section="education" aria-label="Education"><span>Education</span></a>
+            <a href="#gears" class="dot-nav-item" data-section="gears" aria-label="My Gears"><span>Gears</span></a>
+        </nav>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+            <a href="#work" class="mobile-nav-item">Work Experience</a>
+            <a href="#skills" class="mobile-nav-item">Skills</a>
+            <a href="#projects" class="mobile-nav-item">Projects</a>
+            <a href="#education" class="mobile-nav-item">Education</a>
+            <a href="#gears" class="mobile-nav-item">My Gears</a>
+        </nav>
+
         <div class="floating-buttons" role="navigation" aria-label="Floating controls">
             <button id="theme-toggle" class="floating-btn" aria-label="Toggle dark mode" title="Toggle theme">
                 <i class="fas fa-moon" aria-hidden="true"></i>
@@ -81,9 +103,7 @@
                 </div>
                 <h1 class="name">Mharc Bedielon Lontoc Duller</h1>
                 <p class="tagline">
-                    Versatile IT professional with 4+ years of cross-functional experience in infrastructure management, 
-                    data analysis, and open-source development. Combines technical depth with strategic problem-solving 
-                    to drive efficiency in dynamic environments.
+                    <span id="typed-text"></span><span class="cursor">|</span>
                 </p>
                 
                 <div class="social-links" role="navigation" aria-label="Social media links">
@@ -475,7 +495,7 @@
         </main>
 
         <footer>
-            <p>© 2025 therealmharc. All rights reserved.</p>
+            <p>© <span id="year"></span> therealmharc. All rights reserved.</p>
         </footer>
     </div>
 

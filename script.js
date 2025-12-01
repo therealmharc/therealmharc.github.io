@@ -7,7 +7,10 @@
         ANIMATION_THRESHOLD: 0.1,
         RESUME_URL: 'https://raw.githubusercontent.com/therealmharc/therealmharc.github.io/refs/heads/master/resume.pdf',
         RESUME_FILENAME: 'Mharc_Duller_Resume.pdf',
-        DOWNLOAD_FEEDBACK_DURATION: 2000
+        DOWNLOAD_FEEDBACK_DURATION: 2000,
+        TAGLINE: 'Versatile IT professional with 4+ years of cross-functional experience in infrastructure management, data analysis, and open-source development. Combines technical depth with strategic problem-solving to drive efficiency in dynamic environments.',
+        TYPING_SPEED: 30,
+        TYPING_DELAY: 500
     };
     
     const debounce = (func, wait) => {
@@ -140,6 +143,110 @@
         }
     }
     
+    class TypeWriter {
+        constructor() {
+            this.element = document.getElementById('typed-text');
+            this.text = CONFIG.TAGLINE;
+            this.index = 0;
+            if (this.element) this.init();
+        }
+        
+        init() {
+            setTimeout(() => this.type(), CONFIG.TYPING_DELAY);
+        }
+        
+        type() {
+            if (this.index < this.text.length) {
+                this.element.textContent += this.text.charAt(this.index);
+                this.index++;
+                setTimeout(() => this.type(), CONFIG.TYPING_SPEED);
+            } else {
+                document.querySelector('.cursor')?.classList.add('done');
+            }
+        }
+    }
+    
+    class MobileMenu {
+        constructor() {
+            this.btn = document.getElementById('mobile-menu-btn');
+            this.nav = document.getElementById('mobile-nav');
+            this.links = document.querySelectorAll('.mobile-nav-item');
+            if (this.btn && this.nav) this.init();
+        }
+        
+        init() {
+            this.btn.addEventListener('click', () => this.toggle());
+            
+            this.links.forEach(link => {
+                link.addEventListener('click', () => {
+                    this.close();
+                });
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.nav.classList.contains('active')) {
+                    this.close();
+                }
+            });
+        }
+        
+        toggle() {
+            const isActive = this.nav.classList.toggle('active');
+            this.btn.classList.toggle('active');
+            this.btn.setAttribute('aria-expanded', isActive);
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        }
+        
+        close() {
+            this.nav.classList.remove('active');
+            this.btn.classList.remove('active');
+            this.btn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    class DotNavigation {
+        constructor() {
+            this.nav = document.querySelector('.dot-nav');
+            this.dots = document.querySelectorAll('.dot-nav-item');
+            this.sections = document.querySelectorAll('section[id]');
+            if (this.nav && this.dots.length) this.init();
+        }
+        
+        init() {
+            const handleScroll = debounce(() => {
+                const scrollY = window.scrollY;
+                this.nav.classList.toggle('visible', scrollY > CONFIG.SCROLL_THRESHOLD);
+                this.updateActiveDot(scrollY);
+            }, 50);
+            
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll();
+            
+            this.dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.getElementById(dot.dataset.section);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+        
+        updateActiveDot(scrollY) {
+            let current = '';
+            this.sections.forEach(section => {
+                const top = section.offsetTop - 150;
+                if (scrollY >= top) current = section.id;
+            });
+            
+            this.dots.forEach(dot => {
+                dot.classList.toggle('active', dot.dataset.section === current);
+            });
+        }
+    }
+    
     class ResumeDownloader {
         constructor() {
             this.downloadBtn = document.getElementById('resume-download');
@@ -215,7 +322,13 @@
         new ThemeManager();
         new ScrollManager();
         new AnimationObserver();
+        new TypeWriter();
+        new MobileMenu();
+        new DotNavigation();
         new ResumeDownloader();
+        
+        const yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
     }
     
     if (document.readyState === 'loading') {
