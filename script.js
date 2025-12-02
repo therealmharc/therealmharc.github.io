@@ -148,10 +148,16 @@
             this.element = document.getElementById('typed-text');
             this.text = CONFIG.TAGLINE;
             this.index = 0;
+            this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (this.element) this.init();
         }
         
         init() {
+            if (this.prefersReducedMotion) {
+                this.element.textContent = this.text;
+                document.querySelector('.cursor')?.classList.add('done');
+                return;
+            }
             setTimeout(() => this.type(), CONFIG.TYPING_DELAY);
         }
         
@@ -318,6 +324,18 @@
         }
     }
     
+    class PerformanceManager {
+        constructor() {
+            this.init();
+        }
+        
+        init() {
+            document.addEventListener('visibilitychange', () => {
+                document.body.classList.toggle('animations-paused', document.hidden);
+            });
+        }
+    }
+    
     function init() {
         new ThemeManager();
         new ScrollManager();
@@ -326,6 +344,7 @@
         new MobileMenu();
         new DotNavigation();
         new ResumeDownloader();
+        new PerformanceManager();
         
         const yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();

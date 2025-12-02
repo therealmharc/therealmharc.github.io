@@ -30,8 +30,17 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="style.css">
+    
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     
     <title>therealmharc | portfolio</title>
     
@@ -99,11 +108,12 @@
         <header>
             <div class="profile-header">
                 <div class="avatar">
-                    <img src="https://avatars.githubusercontent.com/u/210711584?v=4" alt="Mharc Duller profile photo" loading="lazy" width="150" height="150">
+                    <img src="https://avatars.githubusercontent.com/u/210711584?v=4" alt="Mharc Duller profile photo" loading="eager" width="150" height="150">
                 </div>
                 <h1 class="name">Mharc Bedielon Lontoc Duller</h1>
                 <p class="tagline">
                     <span id="typed-text"></span><span class="cursor">|</span>
+                    <noscript>Versatile IT professional with 4+ years of cross-functional experience in infrastructure management, data analysis, and open-source development.</noscript>
                 </p>
                 
                 <div class="social-links" role="navigation" aria-label="Social media links">
@@ -131,10 +141,10 @@
                         <i class="fas fa-globe" aria-hidden="true"></i>
                         <span>randomscape.org</span>
                     </a>
-                    <div class="contact-item" role="text">
+                    <a href="https://maps.google.com/?q=Tuy,+Batangas,+Philippines" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="View location on Google Maps">
                         <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                         <span>Tuy, Batangas</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </header>
@@ -143,14 +153,14 @@
             <section id="work" aria-labelledby="work-heading">
                 <div class="section-content">
                     <h2 class="section-title" id="work-heading">Work Experience</h2>
-                    <div class="timeline">
+                    <div class="timeline stagger-animation">
                         <article class="timeline-item card card-accent">
                             <h3 class="job-title">IT Staff & Data Analyst Specialist</h3>
                             <div class="meta-info">
                                 <i class="fas fa-building" aria-hidden="true"></i>
                                 <span>ATOMIC Digital Deals Inc. | Nasugbu, Batangas</span>
                             </div>
-                            <time class="date" datetime="2024-06/2025-04">June 2024 – April 2025</time>
+                            <time class="date" datetime="2024-06">June 2024 – April 2025</time>
                             <ul class="list-styled arrow">
                                 <li>Automated data pipelines using Python/SQL, reducing report generation time by 30%</li>
                                 <li>Managed hybrid cloud infrastructure (AWS/Windows Server) and implemented security protocols</li>
@@ -164,7 +174,7 @@
                                 <i class="fas fa-building" aria-hidden="true"></i>
                                 <span>FamCo Retail Inc. | Nasugbu, Batangas</span>
                             </div>
-                            <time class="date" datetime="2024-01/2024-06">January 2024 – June 2024</time>
+                            <time class="date" datetime="2024-01">January 2024 – June 2024</time>
                             <ul class="list-styled arrow">
                                 <li>Optimized inventory databases (MS SQL Server), improving data accuracy by 25%</li>
                                 <li>Resolved 95% of helpdesk tickets (hardware/network issues) within SLA</li>
@@ -177,7 +187,7 @@
                                 <i class="fas fa-building" aria-hidden="true"></i>
                                 <span>General Trias City Hall | General Trias, Cavite</span>
                             </div>
-                            <time class="date" datetime="2022-06/2023-10">June 2022 – October 2023</time>
+                            <time class="date" datetime="2022-06">June 2022 – October 2023</time>
                             <ul class="list-styled arrow">
                                 <li>Managed IT infrastructure for 200+ users (Windows/Linux, DHCP, Firewalls)</li>
                                 <li>Reduced system downtime 40% through proactive maintenance</li>
@@ -191,7 +201,7 @@
                                 <i class="fas fa-building" aria-hidden="true"></i>
                                 <span>Prudentech Construction Inc. | General Trias, Cavite</span>
                             </div>
-                            <time class="date" datetime="2021-05/2021-11">May 2021 – November 2021</time>
+                            <time class="date" datetime="2021-05">May 2021 – November 2021</time>
                             <ul class="list-styled arrow">
                                 <li>Deployed network solutions (VPN, TCP/IP) across 5 sites</li>
                                 <li>Migrated legacy systems to cloud-based tools</li>
@@ -205,7 +215,7 @@
             <section id="skills" aria-labelledby="skills-heading">
                 <div class="section-content">
                     <h2 class="section-title" id="skills-heading">Skills</h2>
-                    <div class="grid grid-auto-fill">
+                    <div class="grid grid-auto-fill stagger-animation">
                         <article class="card skill-category">
                             <h3><i class="fas fa-code" aria-hidden="true"></i> Languages</h3>
                             <div class="skill-list" role="list">
@@ -304,7 +314,7 @@
             <section id="projects" aria-labelledby="projects-heading">
                 <div class="section-content">
                     <h2 class="section-title" id="projects-heading">Projects</h2>
-                    <div class="grid grid-projects">
+                    <div class="grid grid-projects stagger-animation">
                         <article class="project-card">
                             <div class="card-header">
                                 <div>
@@ -377,7 +387,7 @@
             <section id="gears" aria-labelledby="gears-heading">
                 <div class="section-content">
                     <h2 class="section-title" id="gears-heading">My Gears</h2>
-                    <div class="grid grid-projects">
+                    <div class="grid grid-projects stagger-animation">
                         <article class="project-card">
                             <div class="card-header gear-header">
                                 <i class="fas fa-laptop" aria-hidden="true"></i>
