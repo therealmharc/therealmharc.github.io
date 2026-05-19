@@ -73,14 +73,20 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" aria-label="Home">mharc<span class="nav-dot">.</span></a>
+            <div class="nav-links">
+                <div class="nav-indicator" id="nav-indicator"></div>
+                <a href="#work" class="nav-link" data-section="work">Work</a>
+                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#education" class="nav-link" data-section="education">Education</a>
+                <a href="#gears" class="nav-link" data-section="gears">Gears</a>
+            </div>
+        </div>
+    </nav>
     <div class="container">
-        <nav class="dot-nav" role="navigation" aria-label="Section navigation">
-            <a href="#work" class="dot-nav-item" data-section="work" aria-label="Work Experience"><span>Work</span></a>
-            <a href="#skills" class="dot-nav-item" data-section="skills" aria-label="Skills"><span>Skills</span></a>
-            <a href="#projects" class="dot-nav-item" data-section="projects" aria-label="Projects"><span>Projects</span></a>
-            <a href="#education" class="dot-nav-item" data-section="education" aria-label="Education"><span>Education</span></a>
-            <a href="#gears" class="dot-nav-item" data-section="gears" aria-label="My Gears"><span>Gears</span></a>
-        </nav>
 
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
             <span></span>
@@ -97,11 +103,11 @@
         </nav>
 
         <div class="floating-buttons" role="navigation" aria-label="Floating controls">
-            <button id="theme-toggle" class="floating-btn" aria-label="Toggle dark mode" title="Toggle theme">
-                <i class="fas fa-moon" aria-hidden="true"></i>
-            </button>
             <button id="back-to-top" class="floating-btn back-to-top" aria-label="Back to top" title="Scroll to top">
                 <i class="fas fa-arrow-up" aria-hidden="true"></i>
+            </button>
+            <button id="theme-toggle" class="floating-btn" aria-label="Toggle dark mode" title="Toggle theme">
+                <i class="fas fa-moon" aria-hidden="true"></i>
             </button>
         </div>
 
@@ -316,13 +322,9 @@
                     <h2 class="section-title" id="projects-heading">Projects</h2>
                     <div class="grid grid-projects stagger-animation">
                         <article class="project-card">
-                            <div class="card-header">
-                                <div>
-                                    <h3 class="card-title">AOSP-SM6150</h3>
-                                    <p class="card-subtitle">Lead Developer | 2022 - 2025</p>
-                                </div>
-                            </div>
                             <div class="card-body">
+                                <h3 class="card-title">AOSP-SM6150</h3>
+                                <p class="card-subtitle">Lead Developer | 2022 - 2025</p>
                                 <p>Built Android OS for Snapdragon 732G devices (Xiaomi/POCO) used by 10k+ users</p>
                                 <ul class="list-styled bullet">
                                     <li>Optimized kernel performance and battery efficiency by 22%</li>
@@ -342,13 +344,9 @@
                         </article>
                         
                         <article class="project-card">
-                            <div class="card-header">
-                                <div>
-                                    <h3 class="card-title">RisingTechOSS</h3>
-                                    <p class="card-subtitle">Project Manager | 2022 - 2025</p>
-                                </div>
-                            </div>
                             <div class="card-body">
+                                <h3 class="card-title">RisingTechOSS</h3>
+                                <p class="card-subtitle">Project Manager | 2022 - 2025</p>
                                 <p>Led 15+ contributors in developing open-source Android OS for legacy devices</p>
                                 <ul class="list-styled bullet">
                                     <li>Implemented CI/CD pipelines (Jenkins) reducing build time by 35%</li>
@@ -389,14 +387,14 @@
                     <h2 class="section-title" id="gears-heading">My Gears</h2>
                     <div class="grid grid-projects stagger-animation">
                         <article class="project-card">
-                            <div class="card-header gear-header">
-                                <i class="fas fa-laptop" aria-hidden="true"></i>
-                                <div>
-                                    <h3 class="card-title">HP Laptop 15s</h3>
-                                    <p class="card-subtitle">Primary Development Machine</p>
-                                </div>
-                            </div>
                             <div class="card-body">
+                                <div class="gear-header">
+                                    <i class="fas fa-laptop" aria-hidden="true"></i>
+                                    <div>
+                                        <h3 class="card-title">HP Laptop 15s</h3>
+                                        <p class="card-subtitle">Primary Development Machine</p>
+                                    </div>
+                                </div>
                                 <dl>
                                     <div class="gear-detail">
                                         <dt class="detail-label">CPU:</dt>
@@ -419,14 +417,14 @@
                         </article>
                         
                         <article class="project-card">
-                            <div class="card-header gear-header">
-                                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-                                <div>
-                                    <h3 class="card-title">Redmi Note 10 Pro</h3>
-                                    <p class="card-subtitle">Daily Driver</p>
-                                </div>
-                            </div>
                             <div class="card-body">
+                                <div class="gear-header">
+                                    <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                                    <div>
+                                        <h3 class="card-title">Redmi Note 10 Pro</h3>
+                                        <p class="card-subtitle">Daily Driver</p>
+                                    </div>
+                                </div>
                                 <dl>
                                     <div class="gear-detail">
                                         <dt class="detail-label">SoC:</dt>
@@ -449,14 +447,14 @@
                         </article>
                         
                         <article class="project-card">
-                            <div class="card-header gear-header">
-                                <i class="fas fa-headphones" aria-hidden="true"></i>
-                                <div>
-                                    <h3 class="card-title">Moondrop Space Travel</h3>
-                                    <p class="card-subtitle">Wireless Earbuds</p>
-                                </div>
-                            </div>
                             <div class="card-body">
+                                <div class="gear-header">
+                                    <i class="fas fa-headphones" aria-hidden="true"></i>
+                                    <div>
+                                        <h3 class="card-title">Moondrop Space Travel</h3>
+                                        <p class="card-subtitle">Wireless Earbuds</p>
+                                    </div>
+                                </div>
                                 <dl>
                                     <div class="gear-detail">
                                         <dt class="detail-label">Driver:</dt>
@@ -475,14 +473,14 @@
                         </article>
                         
                         <article class="project-card">
-                            <div class="card-header gear-header">
-                                <i class="fas fa-headphones-alt" aria-hidden="true"></i>
-                                <div>
-                                    <h3 class="card-title">7HZ Salnotes Zero</h3>
-                                    <p class="card-subtitle">In-Ear Monitors</p>
-                                </div>
-                            </div>
                             <div class="card-body">
+                                <div class="gear-header">
+                                    <i class="fas fa-headphones-alt" aria-hidden="true"></i>
+                                    <div>
+                                        <h3 class="card-title">7HZ Salnotes Zero</h3>
+                                        <p class="card-subtitle">In-Ear Monitors</p>
+                                    </div>
+                                </div>
                                 <dl>
                                     <div class="gear-detail">
                                         <dt class="detail-label">Driver:</dt>
@@ -505,6 +503,17 @@
         </main>
 
         <footer>
+            <div class="footer-social">
+                <a href="https://github.com/therealmharc" class="footer-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/therealmharc" class="footer-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="https://randomscape.org" class="footer-link" target="_blank" rel="noopener noreferrer" aria-label="Website">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                </a>
+            </div>
             <p>© <span id="year"></span> therealmharc. All rights reserved.</p>
         </footer>
     </div>

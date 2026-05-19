@@ -8,11 +8,13 @@ Modern, responsive portfolio with glassmorphism design and red accent theme.
 - Glassmorphism UI with backdrop blur effects
 - Fully responsive design (mobile + desktop)
 - Mobile hamburger menu navigation
-- Desktop scroll-spy dot navigation
+- Desktop floating island nav bar with sliding active indicator
+- Mobile hamburger menu navigation
 - Typing animation for tagline
 - Animated gradient background
 - Scroll progress indicator
 - Resume download with feedback states
+- Keyboard shortcuts (1-6/T/B)
 - Dynamic copyright year
 - Accessibility-first with ARIA labels, skip links, and focus indicators
 
@@ -50,13 +52,14 @@ All repeated values are centralized in `:root`:
 ### JavaScript Modules
 Single-responsibility classes in `script.js`:
 - `ThemeManager`: Dark/light mode with localStorage persistence
-- `ScrollManager`: Back-to-top button and progress bar
-- `AnimationObserver`: Intersection-based reveal animations
+- `ScrollManager`: Back-to-top button and rAF-based progress bar
+- `AnimationObserver`: Intersection-based reveal animations (progressive enhancement)
 - `TypeWriter`: Tagline typing effect with reduced-motion support
-- `MobileMenu`: Hamburger navigation
-- `DotNavigation`: Desktop scroll-spy dots
-- `ResumeDownloader`: PDF download with feedback states
+- `MobileMenu`: Hamburger navigation with focus trapping
+- `NavScrollSpy`: Desktop nav active tracking with sliding indicator
+- `ResumeDownloader`: Fetch-based PDF download with real success/error feedback
 - `PerformanceManager`: Pauses animations when tab is hidden
+- `KeyboardShortcuts`: 1-6 section navigation, T/B for theme and back-to-top
 
 ## Performance & Security
 

@@ -135,6 +135,10 @@
                 return;
             }
             
+            this.sections.forEach(section => {
+                section.style.opacity = '0';
+            });
+
             const observer = new IntersectionObserver(
                 entries => {
                     entries.forEach(entry => {
@@ -249,45 +253,44 @@
         }
     }
     
-    class DotNavigation {
+    class NavScrollSpy {
         constructor() {
-            this.nav = document.querySelector('.dot-nav');
-            this.dots = document.querySelectorAll('.dot-nav-item');
+            this.links = document.querySelectorAll('.nav-link');
             this.sections = document.querySelectorAll('section[id]');
-            if (this.nav && this.dots.length) this.init();
+            this.indicator = document.getElementById('nav-indicator');
+            if (this.links.length) this.init();
+        }
+        
+        updateIndicator(active) {
+            if (!this.indicator) return;
+            if (active) {
+                this.indicator.style.width = active.offsetWidth + 'px';
+                this.indicator.style.transform = 'translateX(' + active.offsetLeft + 'px)';
+                this.indicator.style.opacity = '1';
+            } else {
+                this.indicator.style.opacity = '0';
+            }
         }
         
         init() {
             const handleScroll = debounce(() => {
-                const scrollY = window.scrollY;
-                this.nav.classList.toggle('visible', scrollY > CONFIG.SCROLL_THRESHOLD);
-                this.updateActiveDot(scrollY);
+                const scrollY = window.scrollY + 100;
+                let current = '';
+                let activeLink = null;
+                this.sections.forEach(section => {
+                    const top = section.offsetTop - 150;
+                    if (scrollY >= top) current = section.id;
+                });
+                this.links.forEach(link => {
+                    const isActive = link.dataset.section === current;
+                    link.classList.toggle('active', isActive);
+                    if (isActive) activeLink = link;
+                });
+                this.updateIndicator(activeLink);
             }, 50);
             
             window.addEventListener('scroll', handleScroll, { passive: true });
             handleScroll();
-            
-            this.dots.forEach(dot => {
-                dot.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const target = document.getElementById(dot.dataset.section);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-        }
-        
-        updateActiveDot(scrollY) {
-            let current = '';
-            this.sections.forEach(section => {
-                const top = section.offsetTop - 150;
-                if (scrollY >= top) current = section.id;
-            });
-            
-            this.dots.forEach(dot => {
-                dot.classList.toggle('active', dot.dataset.section === current);
-            });
         }
     }
     
@@ -372,15 +375,46 @@
         }
     }
     
+    class KeyboardShortcuts {
+        constructor() {
+            this.sectionKeys = { '2': 'work', '3': 'skills', '4': 'projects', '5': 'education', '6': 'gears' };
+            this.themeBtn = document.getElementById('theme-toggle');
+            this.backBtn = document.getElementById('back-to-top');
+            this.init();
+        }
+        
+        init() {
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                const key = e.key;
+                if (key === '1') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    e.preventDefault();
+                } else if (this.sectionKeys[key]) {
+                    const el = document.getElementById(this.sectionKeys[key]);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    e.preventDefault();
+                } else if (key.toLowerCase() === 't') {
+                    this.themeBtn?.click();
+                    e.preventDefault();
+                } else if (key.toLowerCase() === 'b') {
+                    this.backBtn?.click();
+                    e.preventDefault();
+                }
+            });
+        }
+    }
+    
     function init() {
         new ThemeManager();
         new ScrollManager();
         new AnimationObserver();
         new TypeWriter();
         new MobileMenu();
-        new DotNavigation();
+        new NavScrollSpy();
         new ResumeDownloader();
         new PerformanceManager();
+        new KeyboardShortcuts();
         
         const yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
