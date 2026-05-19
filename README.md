@@ -9,7 +9,6 @@ Modern, responsive portfolio with glassmorphism design and red accent theme.
 - Fully responsive design (mobile + desktop)
 - Mobile hamburger menu navigation
 - Desktop floating island nav bar with sliding active indicator
-- Mobile hamburger menu navigation
 - Typing animation for tagline
 - Animated gradient background
 - Scroll progress indicator
@@ -43,11 +42,24 @@ All repeated values are centralized in `:root`:
 - `--touch-target`: Consistent 44px touch target for accessibility
 - `--primary-bg`, `--primary-bg-light`, `--primary-border`: Theme-aware primary colors
 - `--subtle-border`, `--subtle-bg`: Theme-aware neutral colors
+- `--github`, `--linkedin`, `--website`: Brand colors, auto-switch per theme
 - All variables auto-switch between light/dark modes
 
 ### Utility Classes
-- `.glass-panel`: Reusable glassmorphism effect (gradient, blur, shadow, border)
+- `.glass-panel`: Reusable glassmorphism effect (gradient, blur, shadow, border) — applied to 26 elements (header, 5 sections, 14 cards), eliminating 20+ duplicated lines
 - `.stagger-animation`: Cascading animation delays for child elements
+
+### CSS Refactors
+- Shared `.card:hover` / `.project-card:hover` selector — single hover transform rule for both card types
+- Universal `.social-link:hover { color: #fff }` — brands only override background, not color
+- Theme-aware GitHub hover: uses `var(--github)` / `var(--background)` instead of hardcoded `#24292e`
+- Section header comments (Variables, Utilities, Navigation, etc.) for file readability
+
+### Visual Enhancements
+- Gear icons as large background watermarks (4rem, 15% opacity, positioned absolute in `.gear-header`)
+- Timeline gradient line (fades from solid primary to transparent)
+- Animated timeline dot pulse (2s ease-in-out infinite)
+- Alternating even-section tinted backgrounds
 
 ### JavaScript Modules
 Single-responsibility classes in `script.js`:
@@ -73,4 +85,3 @@ Single-responsibility classes in `script.js`:
 ## Development
 
 Edit content in `index.html`. Styling in `style.css` uses CSS variables defined in `:root` for easy theming. JavaScript in `script.js` handles all interactivity through modular classes.
-

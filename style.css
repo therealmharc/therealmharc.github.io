@@ -1,3 +1,6 @@
+/* ====================================
+   Variables & Theming
+   ==================================== */
 :root {
     --nav-bg: rgba(255, 255, 255, 0.85);
     --nav-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -109,6 +112,9 @@ body.animations-paused::after {
     outline: none;
 }
 
+/* ====================================
+   Body & Base Elements
+   ==================================== */
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--background);
@@ -167,6 +173,9 @@ body::after {
     100% { transform: translate(50px, 50px); }
 }
 
+/* ====================================
+   Utilities (glass-panel, stagger)
+   ==================================== */
 /* DRY: Glassmorphism utility mixin */
 .glass-panel {
     background: var(--gradient-card);
@@ -187,6 +196,9 @@ body::after {
 .stagger-animation > *:nth-child(8) { animation-delay: 0.4s; }
 .stagger-animation > *:nth-child(9) { animation-delay: 0.45s; }
 
+/* ====================================
+   Layout & Base Elements
+   ==================================== */
 .scroll-progress {
     position: fixed;
     top: 0;
@@ -221,6 +233,9 @@ body::after {
     outline: none;
 }
 
+/* ====================================
+   Navigation
+   ==================================== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -448,19 +463,20 @@ body::after {
     transform: translateY(0);
 }
 
+/* ====================================
+   Header & Profile
+   ==================================== */
 header {
-    background: var(--gradient-card);
-    backdrop-filter: var(--backdrop-blur);
-    -webkit-backdrop-filter: var(--backdrop-blur);
     border-radius: var(--border-radius);
     padding: calc(var(--spacing-xl) + 1rem) var(--spacing-xl) calc(var(--spacing-xl) + 1rem);
     margin: var(--spacing-lg) auto;
-    box-shadow: var(--shadow-combined);
     animation: fadeIn 1s ease-out;
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--primary);
     position: relative;
     overflow: hidden;
+}
+
+header.glass-panel {
+    border-top: 3px solid var(--primary);
 }
 
 header::before {
@@ -593,19 +609,23 @@ header::before {
 
 
 
+.social-link:hover,
+.social-link:focus-visible {
+    color: #fff;
+}
+
 .social-link[href*="github"]:hover,
 .social-link[href*="github"]:focus-visible {
-    background: #24292e;
-    color: #fff;
+    background: var(--github);
+    color: var(--background);
     transform: translateY(-5px) scale(1.15) rotate(5deg);
-    border-color: #24292e;
+    border-color: var(--github);
     box-shadow: 0 10px 25px rgba(36,41,46,0.4), var(--shadow-glow);
 }
 
 .social-link[href*="linkedin"]:hover,
 .social-link[href*="linkedin"]:focus-visible {
     background: var(--linkedin);
-    color: #fff;
     transform: translateY(-5px) scale(1.15) rotate(-5deg);
     border-color: var(--linkedin);
     box-shadow: 0 10px 25px rgba(0,119,181,0.3), var(--shadow-glow);
@@ -614,7 +634,6 @@ header::before {
 .social-link[href*="randomscape"]:hover,
 .social-link[href*="randomscape"]:focus-visible {
     background: var(--website);
-    color: #fff;
     transform: translateY(-5px) scale(1.15);
     border-color: var(--website);
     box-shadow: 0 10px 25px rgba(var(--primary-rgb), 0.3), var(--shadow-glow);
@@ -688,15 +707,13 @@ header::before {
     font-size: 1.1rem;
 }
 
+/* ====================================
+   Sections & Cards
+   ==================================== */
 section {
-    background: var(--gradient-card);
-    backdrop-filter: var(--backdrop-blur);
-    -webkit-backdrop-filter: var(--backdrop-blur);
     border-radius: var(--border-radius);
     padding: 3rem;
     margin: 2.5rem 0;
-    box-shadow: var(--shadow-combined);
-    border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
     scroll-margin-top: 5rem;
@@ -735,26 +752,33 @@ section:nth-child(even) {
 }
 
 .card {
-    background: var(--gradient-card);
     padding: 1.8rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-combined);
     transition: var(--transition);
     animation: fadeIn .6s ease-out;
     animation-fill-mode: backwards;
-    border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
-    backdrop-filter: var(--backdrop-blur);
-    -webkit-backdrop-filter: var(--backdrop-blur);
     transform-style: preserve-3d;
 }
 
 .card:hover,
-.card:focus-within {
+.card:focus-within,
+.project-card:hover,
+.project-card:focus-within {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover), var(--shadow-glow);
+}
+
+.card:hover,
+.card:focus-within {
     border-color: rgba(var(--primary-rgb), 0.25);
+}
+
+.project-card:hover,
+.project-card:focus-within {
+    border-color: rgba(var(--primary-rgb), 0.3);
+    border-top-color: var(--primary);
 }
 
 .card-accent {
@@ -778,6 +802,9 @@ section:nth-child(even) {
     margin-bottom: var(--spacing-sm);
 }
 
+/* ====================================
+   Timeline (Work Experience)
+   ==================================== */
 .timeline {
     position: relative;
     padding: 0 0 0 30px;
@@ -791,7 +818,8 @@ section:nth-child(even) {
     top: 0;
     height: 100%;
     width: 3px;
-    background: var(--primary);
+    background: linear-gradient(to bottom, var(--primary), rgba(var(--primary-rgb), 0.3));
+    border-radius: 2px;
 }
 
 .timeline-item {
@@ -811,6 +839,7 @@ section:nth-child(even) {
     background: var(--primary);
     border: 3px solid var(--light);
     box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+    animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -878,6 +907,9 @@ section:nth-child(even) {
     font-weight: 700;
 }
 
+/* ====================================
+   Grid Layouts (Skills, Projects, Gears)
+   ==================================== */
 .grid {
     display: grid;
     gap: var(--spacing-lg);
@@ -959,17 +991,15 @@ section:nth-child(even) {
 
 .project-card {
     border-radius: var(--border-radius);
-    background: var(--gradient-card);
-    backdrop-filter: var(--backdrop-blur);
-    -webkit-backdrop-filter: var(--backdrop-blur);
-    box-shadow: var(--shadow-combined);
     transition: var(--transition);
     animation: fadeIn .6s ease-out;
     animation-fill-mode: backwards;
     position: relative;
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--primary);
     transform-style: preserve-3d;
+}
+
+.project-card.glass-panel {
+    border-top: 3px solid var(--primary);
 }
 
 .project-card:hover,
@@ -1038,6 +1068,27 @@ section:nth-child(even) {
     border: 1px solid rgba(var(--primary-rgb), 0.3);
 }
 
+.gear-header {
+    position: relative;
+}
+
+.gear-header i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    opacity: .15;
+    color: var(--primary);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.gear-header div {
+    position: relative;
+    z-index: 1;
+}
+
 .gear-header .card-subtitle {
     font-size: .85rem;
     color: var(--text-secondary);
@@ -1071,6 +1122,9 @@ section:nth-child(even) {
     word-break: break-word;
 }
 
+/* ====================================
+   Keyframes
+   ==================================== */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -1083,6 +1137,9 @@ section:nth-child(even) {
 
 
 
+/* ====================================
+   Footer
+   ==================================== */
 footer {
     text-align: center;
     padding: var(--spacing-xl) 0 var(--spacing-md);
@@ -1122,6 +1179,9 @@ footer {
     transform: translateY(-2px);
 }
 
+/* ====================================
+   Responsive (Mobile)
+   ==================================== */
 @media (max-width: 768px) {
     .top-nav {
         top: 8px;
@@ -1197,6 +1257,9 @@ footer {
     }
 }
 
+/* ====================================
+   Responsive (Tablet)
+   ==================================== */
 @media (min-width: 769px) and (max-width: 1024px) {
     .grid-projects {
         grid-template-columns: repeat(2, 1fr);
@@ -1212,6 +1275,9 @@ footer {
     }
 }
 
+/* ====================================
+   Print
+   ==================================== */
 @media print {
     body {
         background: white;
