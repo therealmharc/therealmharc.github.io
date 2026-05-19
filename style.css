@@ -1,4 +1,5 @@
 :root {
+    --primary-rgb: 209, 0, 0;
     --primary: #d10000;
     --primary-dark: #a00000;
     --primary-light: #ff3333;
@@ -9,10 +10,10 @@
     --background: #f8f9fa;
     --text: #1a1a2e;
     --text-secondary: #4a4a68;
-    --border: rgba(209,0,0,0.1);
+    --border: rgba(var(--primary-rgb), 0.1);
     --shadow: 0 8px 32px rgba(0,0,0,0.08);
-    --shadow-hover: 0 16px 48px rgba(209,0,0,0.15);
-    --shadow-glow: 0 0 30px rgba(209,0,0,0.25);
+    --shadow-hover: 0 16px 48px rgba(var(--primary-rgb), 0.15);
+    --shadow-glow: 0 0 30px rgba(var(--primary-rgb), 0.25);
     --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.8);
     --shadow-combined: var(--shadow), var(--shadow-inset);
     --transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -29,9 +30,9 @@
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
     --backdrop-blur: blur(20px);
     --touch-target: 44px;
-    --primary-bg: rgba(209,0,0,0.1);
-    --primary-bg-light: rgba(209,0,0,0.08);
-    --primary-border: rgba(209,0,0,0.12);
+    --primary-bg: rgba(var(--primary-rgb), 0.1);
+    --primary-bg-light: rgba(var(--primary-rgb), 0.08);
+    --primary-border: rgba(var(--primary-rgb), 0.12);
     --subtle-border: rgba(0,0,0,0.05);
     --subtle-bg: rgba(0,0,0,0.05);
     --github: #24292e;
@@ -40,6 +41,7 @@
 }
 
 :root.dark {
+    --primary-rgb: 255, 68, 68;
     --primary: #ff4444;
     --primary-dark: #ff0000;
     --primary-light: #ff6666;
@@ -50,22 +52,23 @@
     --background: #0a0a10;
     --text: #f0f0f5;
     --text-secondary: #b0b0c0;
-    --border: rgba(255,68,68,0.15);
+    --border: rgba(var(--primary-rgb), 0.15);
     --shadow: 0 8px 32px rgba(0,0,0,0.5);
-    --shadow-hover: 0 16px 48px rgba(255,68,68,0.25);
-    --shadow-glow: 0 0 40px rgba(255,68,68,0.35);
+    --shadow-hover: 0 16px 48px rgba(var(--primary-rgb), 0.25);
+    --shadow-glow: 0 0 40px rgba(var(--primary-rgb), 0.35);
     --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.05);
     --shadow-combined: var(--shadow), var(--shadow-inset);
     --gradient-primary: linear-gradient(135deg, #ff2222 0%, #ff6666 100%);
     --gradient-card: linear-gradient(145deg, rgba(22,22,31,0.95) 0%, rgba(22,22,31,0.7) 100%);
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
-    --primary-bg: rgba(255,68,68,0.15);
-    --primary-bg-light: rgba(255,68,68,0.1);
-    --primary-border: rgba(255,68,68,0.2);
+    --primary-bg: rgba(var(--primary-rgb), 0.15);
+    --primary-bg-light: rgba(var(--primary-rgb), 0.1);
+    --primary-border: rgba(var(--primary-rgb), 0.2);
     --subtle-border: rgba(255,255,255,0.05);
     --subtle-bg: rgba(255,255,255,0.05);
     --github: #f0f6fc;
     --linkedin: #5eb8ff;
+    --website: #ff4444;
 }
 
 * {
@@ -121,23 +124,11 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 30%, rgba(209,0,0,0.1) 0%, transparent 35%),
-        radial-gradient(circle at 80% 70%, rgba(209,0,0,0.08) 0%, transparent 35%),
-        radial-gradient(circle at 50% 50%, rgba(209,0,0,0.05) 0%, transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(var(--primary-rgb), 0.1) 0%, transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(var(--primary-rgb), 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(var(--primary-rgb), 0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
-    animation: bgPulse 8s ease-in-out infinite;
-}
-
-@keyframes bgPulse {
-    0%, 100% { 
-        opacity: 0.6;
-        transform: scale(1);
-    }
-    50% { 
-        opacity: 1;
-        transform: scale(1.1);
-    }
 }
 
 body::after {
@@ -151,8 +142,8 @@ body::after {
         0deg,
         transparent,
         transparent 2px,
-        rgba(209,0,0,0.02) 2px,
-        rgba(209,0,0,0.02) 4px
+        rgba(var(--primary-rgb), 0.02) 2px,
+        rgba(var(--primary-rgb), 0.02) 4px
     );
     pointer-events: none;
     z-index: 0;
@@ -193,7 +184,7 @@ body::after {
     background: var(--gradient-primary);
     z-index: 9999;
     transition: width 0.1s ease-out;
-    box-shadow: 0 0 10px rgba(209,0,0,0.5);
+    box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
 }
 
 .skip-link {
@@ -424,7 +415,7 @@ body::after {
 .floating-btn:hover,
 .floating-btn:focus-visible {
     transform: translateY(-4px) scale(1.1);
-    box-shadow: var(--shadow-hover), 0 0 35px rgba(209,0,0,0.5);
+    box-shadow: var(--shadow-hover), 0 0 35px rgba(var(--primary-rgb), 0.5);
 }
 
 .floating-btn:active {
@@ -484,7 +475,7 @@ header {
 
 .avatar:hover {
     transform: scale(1.05);
-    box-shadow: var(--shadow-hover), 0 0 40px rgba(209,0,0,0.4);
+    box-shadow: var(--shadow-hover), 0 0 40px rgba(var(--primary-rgb), 0.4);
 }
 
 .avatar img {
@@ -583,7 +574,7 @@ header {
     color: #fff;
     transform: translateY(-5px) scale(1.15);
     border-color: var(--website);
-    box-shadow: 0 10px 25px rgba(209,0,0,0.3), var(--shadow-glow);
+    box-shadow: 0 10px 25px rgba(var(--primary-rgb), 0.3), var(--shadow-glow);
 }
 
 .btn {
@@ -596,7 +587,6 @@ header {
     transition: var(--transition);
     border: none;
     cursor: pointer;
-    will-change: transform;
     letter-spacing: 0.5px;
     text-decoration: none;
     min-height: var(--touch-target);
@@ -605,7 +595,7 @@ header {
 .btn-primary {
     background: var(--gradient-primary);
     color: #fff;
-    box-shadow: var(--shadow), 0 4px 15px rgba(209,0,0,0.3);
+    box-shadow: var(--shadow), 0 4px 15px rgba(var(--primary-rgb), 0.3);
     margin: var(--spacing-sm) 0 var(--spacing-md);
 }
 
@@ -637,7 +627,6 @@ header {
     border-radius: 50px;
     background: var(--primary-bg-light);
     text-decoration: none;
-    will-change: transform;
     font-weight: 500;
     border: 1px solid var(--primary-bg);
     min-height: var(--touch-target);
@@ -665,7 +654,7 @@ section {
     margin: 2rem 0;
     box-shadow: var(--shadow-combined);
     border: 1px solid var(--border);
-    animation: slideUp .8s ease-out;
+    opacity: 0;
     position: relative;
     overflow: hidden;
     scroll-margin-top: 2rem;
@@ -695,7 +684,6 @@ section {
     transition: var(--transition);
     animation: fadeIn .6s ease-out;
     animation-fill-mode: backwards;
-    will-change: transform;
     border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
@@ -708,7 +696,7 @@ section {
 .card:focus-within {
     transform: translateY(-6px) scale(1.01);
     box-shadow: var(--shadow-hover), var(--shadow-glow);
-    border-color: rgba(209,0,0,0.25);
+    border-color: rgba(var(--primary-rgb), 0.25);
 }
 
 .card-accent {
@@ -772,16 +760,16 @@ section {
     border-radius: 50%;
     background: var(--primary);
     border: 3px solid var(--light);
-    box-shadow: 0 0 0 0 rgba(209,0,0,0.7);
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.7);
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(209,0,0,0.7);
+        box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.7);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(209,0,0,0);
+        box-shadow: 0 0 0 8px rgba(var(--primary-rgb), 0);
     }
 }
 
@@ -872,7 +860,6 @@ section {
     border-radius: 50px;
     font-size: .9rem;
     transition: var(--transition);
-    will-change: transform;
     font-weight: 500;
 }
 
@@ -890,7 +877,7 @@ section {
     background: var(--primary);
     color: #fff;
     transform: scale(1.08) translateY(-2px);
-    box-shadow: 0 6px 20px rgba(209,0,0,0.35);
+    box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.35);
     border-color: var(--primary);
 }
 
@@ -904,7 +891,6 @@ section {
     transition: var(--transition);
     animation: fadeIn .6s ease-out;
     animation-fill-mode: backwards;
-    will-change: transform;
     position: relative;
     border: 1px solid var(--border);
     transform-style: preserve-3d;
@@ -914,7 +900,7 @@ section {
 .project-card:focus-within {
     transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-hover), var(--shadow-glow);
-    border-color: rgba(209,0,0,0.3);
+    border-color: rgba(var(--primary-rgb), 0.3);
 }
 
 .project-links {

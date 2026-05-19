@@ -91,13 +91,24 @@
         }
         
         init() {
-            const handleScroll = debounce(() => {
+            const handleBackToTop = debounce(() => {
                 const shouldShow = window.scrollY > CONFIG.SCROLL_THRESHOLD;
                 if (this.backToTopBtn) {
                     this.backToTopBtn.classList.toggle('visible', shouldShow);
                 }
-                this.updateProgress();
             }, CONFIG.DEBOUNCE_DELAY);
+            
+            let ticking = false;
+            const handleScroll = () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        this.updateProgress();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+                handleBackToTop();
+            };
             
             window.addEventListener('scroll', handleScroll, { passive: true });
             handleScroll();
@@ -137,7 +148,6 @@
             );
             
             this.sections.forEach(section => {
-                section.style.opacity = '0';
                 observer.observe(section);
             });
         }
@@ -177,6 +187,7 @@
             this.btn = document.getElementById('mobile-menu-btn');
             this.nav = document.getElementById('mobile-nav');
             this.links = document.querySelectorAll('.mobile-nav-item');
+            this.lastFocused = null;
             if (this.btn && this.nav) this.init();
         }
         
@@ -184,16 +195,35 @@
             this.btn.addEventListener('click', () => this.toggle());
             
             this.links.forEach(link => {
-                link.addEventListener('click', () => {
-                    this.close();
-                });
+                link.addEventListener('click', () => this.close());
             });
             
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && this.nav.classList.contains('active')) {
                     this.close();
                 }
+                if (e.key === 'Tab' && this.nav.classList.contains('active')) {
+                    this.trapFocus(e);
+                }
             });
+        }
+        
+        trapFocus(e) {
+            const focusable = Array.from(this.links);
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            
+            if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         }
         
         toggle() {
@@ -201,6 +231,13 @@
             this.btn.classList.toggle('active');
             this.btn.setAttribute('aria-expanded', isActive);
             document.body.style.overflow = isActive ? 'hidden' : '';
+            
+            if (isActive) {
+                this.lastFocused = document.activeElement;
+                setTimeout(() => this.links[0]?.focus(), 100);
+            } else {
+                this.lastFocused?.focus();
+            }
         }
         
         close() {
@@ -208,6 +245,7 @@
             this.btn.classList.remove('active');
             this.btn.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
+            this.lastFocused?.focus();
         }
     }
     
@@ -306,21 +344,19 @@
             this.downloadBtn.disabled = false;
         }
         
-        downloadFile() {
-            return new Promise((resolve, reject) => {
-                try {
-                    const link = document.createElement('a');
-                    link.href = CONFIG.RESUME_URL;
-                    link.download = CONFIG.RESUME_FILENAME;
-                    link.style.display = 'none';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    resolve();
-                } catch (error) {
-                    reject(error);
-                }
-            });
+        async downloadFile() {
+            const response = await fetch(CONFIG.RESUME_URL);
+            if (!response.ok) throw new Error('Download failed');
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = CONFIG.RESUME_FILENAME;
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
         }
     }
     
